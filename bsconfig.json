@@ -14,8 +14,5 @@
     }
   ],
   "suffix": ".bs.js",
-  "bs-dependencies": [
-    "@rescript/react",
-    "rescript-react-native"
-  ]
+  "bs-dependencies": ["@rescript/react", "rescript-react-native"]
 }
