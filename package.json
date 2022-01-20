@@ -2,7 +2,13 @@
   "name": "rescript-reanimated",
   "description": "ReScript bindings for react-native-reanimated v2",
   "version": "2.3.0",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reck753/rescript-reanimated.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "rescript",
     "react-native",
@@ -30,5 +36,9 @@
   },
   "prettier": {
     "trailingComma": "all"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/reck753/rescript-reanimated/issues"
+  },
+  "homepage": "https://github.com/reck753/rescript-reanimated#readme"
 }
