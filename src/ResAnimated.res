@@ -80,8 +80,88 @@ module SharedValue = {
 @module("react-native-reanimated")
 external useSharedValue: 't => SharedValue.t<'t> = "useSharedValue"
 
-@module("react-native-reanimated")
-external withTiming: 't => float = "withTiming"
+module Easing = {
+  type t = float => float
+
+  @module("react-native-reanimated") @scope("Easing")
+  external linear: float => float = "linear"
+  @module("react-native-reanimated") @scope("Easing")
+  external ease: float => float = "ease"
+  @module("react-native-reanimated") @scope("Easing")
+  external quad: float => float = "quad"
+  @module("react-native-reanimated") @scope("Easing")
+  external cubic: float => float = "cubic"
+  @module("react-native-reanimated") @scope("Easing")
+  external out: t => t = "out"
+  // TODO Add rest
+}
+
+type animationCallback<'t> = (option<bool>, option<'t>) => unit
+
+module Timing = {
+  type config = {
+    duration: option<float>,
+    easing: option<Easing.t>,
+  }
+
+  let makeConfig = (~duration: option<float>=?, ~easing: option<Easing.t>=?, ()) => {
+    duration: duration,
+    easing: easing,
+  }
+
+  @module("react-native-reanimated")
+  external withTiming_: ('t, option<config>, option<animationCallback<'t>>) => float = "withTiming"
+}
+
+let withTiming = (
+  ~toValue: 't,
+  ~userConfig: option<Timing.config>=?,
+  ~callback: option<animationCallback<'t>>=?,
+  (),
+) => {
+  Timing.withTiming_(toValue, userConfig, callback)
+}
+
+module Spring = {
+  type config = {
+    mass: option<float>,
+    stiffness: option<float>,
+    overshootClamping: option<bool>,
+    restDisplacementThreshold: option<float>,
+    restSpeedThreshold: option<float>,
+    velocity: option<float>,
+    damping: option<float>,
+  }
+  let makeConfig = (
+    ~mass: option<float>=?,
+    ~stiffness: option<float>=?,
+    ~overshootClamping: option<bool>=?,
+    ~restDisplacementThreshold: option<float>=?,
+    ~restSpeedThreshold: option<float>=?,
+    ~velocity: option<float>=?,
+    ~damping: option<float>=?,
+    (),
+  ) => {
+    mass: mass,
+    stiffness: stiffness,
+    overshootClamping: overshootClamping,
+    restDisplacementThreshold: restDisplacementThreshold,
+    restSpeedThreshold: restSpeedThreshold,
+    velocity: velocity,
+    damping: damping,
+  }
+  @module("react-native-reanimated")
+  external withSpring_: ('t, option<config>, option<animationCallback<'t>>) => float = "withSpring"
+}
+
+let withSpring = (
+  ~toValue: 't,
+  ~userConfig: option<Spring.config>=?,
+  ~callback: option<animationCallback<'t>>=?,
+  (),
+) => {
+  Spring.withSpring_(toValue, userConfig, callback)
+}
 
 @module("react-native-reanimated")
 external useAnimatedStyle: (@uncurry (unit => Style.t)) => Style.t = "useAnimatedStyle"
@@ -132,6 +212,7 @@ module Interpolate = {
   type type_ = option<ExtrapolationType.t>
 }
 
+// Turn into named arguments maybe?
 @module("react-native-reanimated")
 external interpolate: (
   Interpolate.x,
@@ -139,3 +220,7 @@ external interpolate: (
   Interpolate.output,
   Interpolate.type_,
 ) => float = "interpolate"
+
+@module("react-native-reanimated")
+external interpolateColor: (float, array<float>, array<Color.t>, [#RGB | #HSV]) => Color.t =
+  "interpolateColor"
