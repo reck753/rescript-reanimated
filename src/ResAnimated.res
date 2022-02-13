@@ -85,35 +85,6 @@ module SharedValue = {
 @module("react-native-reanimated")
 external useSharedValue: 't => SharedValue.t<'t> = "useSharedValue"
 
-module Easing = {
-  type t = float => float
-
-  @module("react-native-reanimated") @scope("Easing")
-  external linear: float => float = "linear"
-  @module("react-native-reanimated") @scope("Easing")
-  external ease: float => float = "ease"
-  @module("react-native-reanimated") @scope("Easing")
-  external quad: float => float = "quad"
-  @module("react-native-reanimated") @scope("Easing")
-  external cubic: float => float = "cubic"
-
-  @module("react-native-reanimated") @scope("Easing")
-  external out: t => t = "out"
-  @module("react-native-reanimated") @scope("Easing")
-  external inOut: t => t = "inOut"
-  // TODO Add rest
-
-  // TEST Easing fix
-  type easing = {
-    linear: float => float,
-    quad: float => float,
-  }
-  let easing = {
-    linear: linear,
-    quad: quad,
-  }
-}
-
 type animationCallback<'t> = (option<bool>, option<'t>) => unit
 
 module Timing = {
@@ -122,11 +93,7 @@ module Timing = {
     easing: option<Easing.t>,
   }
 
-  let makeConfig = (
-    ~duration: float=300.,
-    ~easing: Easing.t=Easing.easing.quad->Easing.inOut,
-    (),
-  ) => {
+  let makeConfig = (~duration: float=300., ~easing: Easing.t=Easing.quad->Easing.inOut, ()) => {
     duration: Some(duration),
     easing: Some(easing),
   }
