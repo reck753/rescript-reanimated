@@ -33,9 +33,26 @@ var SharedValue = {
   make: make$2
 };
 
-var Easing = {};
+function easing_linear(prim) {
+  return ReactNativeReanimated.Easing.linear(prim);
+}
 
-function makeConfig(duration, easing, param) {
+function easing_quad(prim) {
+  return ReactNativeReanimated.Easing.quad(prim);
+}
+
+var easing = {
+  linear: easing_linear,
+  quad: easing_quad
+};
+
+var Easing = {
+  easing: easing
+};
+
+function makeConfig(durationOpt, easingOpt, param) {
+  var duration = durationOpt !== undefined ? durationOpt : 300;
+  var easing = easingOpt !== undefined ? easingOpt : ReactNativeReanimated.Easing.inOut(easing_quad);
   return {
           duration: duration,
           easing: easing

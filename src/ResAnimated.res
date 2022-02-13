@@ -72,10 +72,10 @@ module AnimatedGestureHandler = {
 }
 
 @module("react-native-reanimated")
-external runOnUI: ('fn, . unit) => unit = "runOnUI"
+external runOnUI: ('t => unit, . 't) => unit = "runOnUI"
 
 @module("react-native-reanimated")
-external runOnJS: ('fn, . unit) => unit = "runOnJS"
+external runOnJS: ('t => unit, . 't) => unit = "runOnJS"
 
 module SharedValue = {
   type t<'t> = {mutable value: 't}
@@ -96,9 +96,22 @@ module Easing = {
   external quad: float => float = "quad"
   @module("react-native-reanimated") @scope("Easing")
   external cubic: float => float = "cubic"
+
   @module("react-native-reanimated") @scope("Easing")
   external out: t => t = "out"
+  @module("react-native-reanimated") @scope("Easing")
+  external inOut: t => t = "inOut"
   // TODO Add rest
+
+  // TEST Easing fix
+  type easing = {
+    linear: float => float,
+    quad: float => float,
+  }
+  let easing = {
+    linear: linear,
+    quad: quad,
+  }
 }
 
 type animationCallback<'t> = (option<bool>, option<'t>) => unit
@@ -109,9 +122,13 @@ module Timing = {
     easing: option<Easing.t>,
   }
 
-  let makeConfig = (~duration: option<float>=?, ~easing: option<Easing.t>=?, ()) => {
-    duration: duration,
-    easing: easing,
+  let makeConfig = (
+    ~duration: float=300.,
+    ~easing: Easing.t=Easing.easing.quad->Easing.inOut,
+    (),
+  ) => {
+    duration: Some(duration),
+    easing: Some(easing),
   }
 
   @module("react-native-reanimated")
@@ -227,5 +244,5 @@ external interpolate: (
 ) => float = "interpolate"
 
 @module("react-native-reanimated")
-external interpolateColor: (float, array<float>, array<Color.t>, [#RGB | #HSV]) => Color.t =
+external interpolateColor: (float, array<float>, array<Color.t>, option<[#RGB | #HSV]>) => Color.t =
   "interpolateColor"
