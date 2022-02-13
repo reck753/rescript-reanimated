@@ -72,10 +72,10 @@ module AnimatedGestureHandler = {
 }
 
 @module("react-native-reanimated")
-external runOnUI: ('t => unit, . 't) => unit = "runOnUI"
+external runOnUI: ('arg => 'return, . 'arg) => unit = "runOnUI"
 
 @module("react-native-reanimated")
-external runOnJS: ('t => unit, . 't) => unit = "runOnJS"
+external runOnJS: ('arg => 'return, . 'arg) => unit = "runOnJS"
 
 module SharedValue = {
   type t<'t> = {mutable value: 't}
@@ -88,27 +88,52 @@ external useSharedValue: 't => SharedValue.t<'t> = "useSharedValue"
 type animationCallback<'t> = (option<bool>, option<'t>) => unit
 
 module Timing = {
-  type config = {
-    duration: option<float>,
-    easing: option<Easing.t>,
+  type justDuration = {duration: float}
+
+  type justEasing = {easing: Easing.t}
+
+  type both = {
+    duration: float,
+    easing: Easing.t,
   }
 
-  let makeConfig = (~duration: float=300., ~easing: Easing.t=Easing.quad->Easing.inOut, ()) => {
-    duration: Some(duration),
-    easing: Some(easing),
+  let makeConfig = (~duration: option<float>=?, ~easing: option<Easing.t>=?, ()) => {
+    switch (duration, easing) {
+    | (Some(duration), None) => Some(#Duration({duration: duration}))
+    | (None, Some(easing)) => Some(#Easing({easing: easing}))
+    | (Some(duration), Some(easing)) => Some(#Both({duration: duration, easing: easing}))
+    | (None, None) => None
+    }
   }
 
+  // DO NOT USE OR YOU WILL GET FIRED ;)
   @module("react-native-reanimated")
-  external withTiming_: ('t, option<config>, option<animationCallback<'t>>) => float = "withTiming"
+  external withTiming_: (
+    't,
+    @unwrap
+    [#Duration(justDuration) | #Easing(justEasing) | #Both(both) | #Nothing(option<string>)],
+    option<animationCallback<'t>>,
+  ) => float = "withTiming"
 }
 
 let withTiming = (
   ~toValue: 't,
-  ~userConfig: option<Timing.config>=?,
+  ~userConfig: option<
+    [#Duration(Timing.justDuration) | #Easing(Timing.justEasing) | #Both(Timing.both)],
+  >,
   ~callback: option<animationCallback<'t>>=?,
   (),
 ) => {
-  Timing.withTiming_(toValue, userConfig, callback)
+  Timing.withTiming_(
+    toValue,
+    switch userConfig {
+    | Some(#Duration(durationObj)) => #Duration(durationObj)
+    | Some(#Easing(easingObj)) => #Easing(easingObj)
+    | Some(#Both(bothObj)) => #Both(bothObj)
+    | None => #Nothing(None)
+    },
+    callback,
+  )
 }
 
 module Spring = {
