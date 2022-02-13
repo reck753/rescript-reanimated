@@ -9,6 +9,12 @@ var View = {
   make: make
 };
 
+var make$1 = Exports.AnimatedText;
+
+var $$Text = {
+  make: make$1
+};
+
 function Make(Arguments) {
   return {};
 }
@@ -17,14 +23,14 @@ var AnimatedGestureHandler = {
   Make: Make
 };
 
-function make$1(smth) {
+function make$2(smth) {
   return {
           value: smth
         };
 }
 
 var SharedValue = {
-  make: make$1
+  make: make$2
 };
 
 var Easing = {};
@@ -72,6 +78,7 @@ var Interpolate = {};
 
 export {
   View ,
+  $$Text ,
   AnimatedGestureHandler ,
   SharedValue ,
   Easing ,

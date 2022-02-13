@@ -15,6 +15,11 @@ module View = {
   ) => React.element = "AnimatedView"
 }
 
+module Text = {
+  @react.component @module("./exports")
+  external make: (~style: Style.t=?, ~children: React.element=?) => React.element = "AnimatedText"
+}
+
 module AnimatedGestureHandler = {
   module Make = (
     Arguments: {
