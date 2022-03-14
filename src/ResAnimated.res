@@ -5,6 +5,7 @@ module View = {
   external make: (
     ~style: Style.t=?,
     ~children: React.element=?,
+    ~onLayout: Event.layoutEvent => unit=?,
     ~pointerEvents: @string
     [
       | #auto
