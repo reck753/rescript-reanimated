@@ -10,7 +10,10 @@ Exposed as `ResAnimated` module.
 
 Work in progress.
 
-- [ ] `Animated.View`
+- [x] `Animated.View`
+  - [ ] Add rest of the `View` props
+- [x] `Animated.Text`
+  - [ ] Add rest of the `Text` props
 - [x] `useAnimatedGestureHandler`
 - [x] `runOnUI`
 - [x] `runOnJS`
@@ -32,3 +35,7 @@ npm install rescript-reanimated
 # or
 yarn add rescript-reanimated
 ```
+
+## Example
+
+An example repo is in progress. Until then you can refer to [this issue](https://github.com/reck753/rescript-reanimated/issues/1) for two small examples.
