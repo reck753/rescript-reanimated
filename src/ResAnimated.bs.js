@@ -130,6 +130,5 @@ export {
   Extrapolation ,
   ExtrapolationType ,
   Interpolate ,
-  
 }
 /* make Not a pure module */
