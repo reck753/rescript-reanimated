@@ -31,8 +31,8 @@
   "devDependencies": {
     "@rescript/react": "^0.10.3",
     "prettier": "^2.5.1",
-    "rescript-react-native": "^0.64.3 || ^0.65.0 || ^0.66.0",
-    "rescript": "^9.1.4"
+    "rescript": "^10.0.1",
+    "rescript-react-native": "^0.64.3 || ^0.65.0 || ^0.66.0"
   },
   "prettier": {
     "trailingComma": "all"
