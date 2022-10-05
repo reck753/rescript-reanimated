@@ -156,7 +156,7 @@ type scrollHandler = ReactNative.Event.scrollEvent => unit
 
 @module("react-native-reanimated")
 /** 
-Receives a record of scroll event handlers and returns a single handler that can be passed to ResAnimated.ScrollView
+Receives a record of scroll event handlers and returns a single handler that can be passed to Reanimated.ScrollView
 
 
 Example:
@@ -167,7 +167,7 @@ let scrollHandler = useAnimatedScrollHandler({
     },
   })
 
-  <ResAnimated.ScrollView onScroll=scrollHandler />
+  <Reanimated.ScrollView onScroll=scrollHandler />
   ```
  */
 external useAnimatedScrollHandler: handlers => scrollHandler = "useAnimatedScrollHandler"

@@ -1,4 +1,4 @@
-open ResAnimated
+open Reanimated
 open ReactNative.Style
 
 module Styles = {
@@ -23,12 +23,12 @@ let make = () => {
   )
 
   <View style=Styles.container>
-    <ResAnimated.View style={array([animatedStyles, Styles.flex, Styles.blue])} />
-    <ResAnimated.ScrollView style={Styles.flex} scrollEventThrottle=16 onScroll=scrollHandler>
+    <Reanimated.View style={array([animatedStyles, Styles.flex, Styles.blue])} />
+    <Reanimated.ScrollView style={Styles.flex} scrollEventThrottle=16 onScroll=scrollHandler>
       <View style={Styles.content}>
         <Text> {"really cool content here!"->React.string} </Text>
       </View>
-    </ResAnimated.ScrollView>
+    </Reanimated.ScrollView>
   </View>
 }
 let default = make
