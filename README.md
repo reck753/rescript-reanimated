@@ -20,6 +20,7 @@ Work in progress.
 - [x] `useSharedValue`
 - [x] `withTiming`
 - [x] `useAnimatedStyle`
+- [x] `useAnimatedScrollHandler`
 - [x] `interpolate`
 - [ ] ...
 - [ ] ...
@@ -38,4 +39,4 @@ yarn add rescript-reanimated
 
 ## Example
 
-An example repo is in progress. Until then you can refer to [this issue](https://github.com/reck753/rescript-reanimated/issues/1) for two small examples.
+An example repo is in progress. Until then you can refer to [this issue](https://github.com/reck753/rescript-reanimated/issues/1) for two small examples, or the examples folder.
