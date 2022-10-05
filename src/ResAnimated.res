@@ -145,6 +145,36 @@ module ScrollView = {
   ) => React.element = "AnimatedScrollView"
 }
 
+type reanimatedScrollHandler = ReactNative.Event.ScrollEvent.payload => unit
+
+type handlers = {
+  onMomentumEnd?: reanimatedScrollHandler,
+  onBeginDrag?: reanimatedScrollHandler,
+  onEndDrag?: reanimatedScrollHandler,
+  onMomentumBegin?: reanimatedScrollHandler,
+  onScroll?: reanimatedScrollHandler,
+}
+
+type scrollHandler = Event.scrollEvent => unit
+
+@module("react-native-reanimated")
+/** 
+Receives a record of scroll event handlers and returns a single handler that can be passed to ResAnimated.ScrollView
+
+
+Example:
+ ```
+let scrollHandler = useAnimatedScrollHandler({
+    onScroll: event => {
+      translationY.value = event.contentOffset.y
+    },
+  })
+
+  <ResAnimated.ScrollView onScroll=scrollHandler />
+  ```
+ */
+external useAnimatedScrollHandler: handlers => scrollHandler = "useAnimatedScrollHandler"
+
 module AnimatedGestureHandler = {
   module Make = (
     Arguments: {
