@@ -15,6 +15,12 @@ var $$Text = {
   make: make$1
 };
 
+var make$2 = Exports.AnimatedScrollView;
+
+var ScrollView = {
+  make: make$2
+};
+
 function Make(Arguments) {
   return {};
 }
@@ -23,14 +29,14 @@ var AnimatedGestureHandler = {
   Make: Make
 };
 
-function make$2(smth) {
+function make$3(smth) {
   return {
           value: smth
         };
 }
 
 var SharedValue = {
-  make: make$2
+  make: make$3
 };
 
 function makeConfig(duration, easing, param) {
@@ -121,6 +127,7 @@ var Interpolate = {};
 export {
   View ,
   $$Text ,
+  ScrollView ,
   AnimatedGestureHandler ,
   SharedValue ,
   Timing ,

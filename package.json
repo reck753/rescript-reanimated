@@ -1,7 +1,7 @@
 {
   "name": "rescript-reanimated",
   "description": "ReScript bindings for react-native-reanimated v2",
-  "version": "2.3.8",
+  "version": "2.3.9",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reck753/rescript-reanimated.git"
