@@ -2,7 +2,7 @@
 
 ReScript bindings for `react-native-reanimated v2`.
 
-Exposed as `ResAnimated` module.
+Exposed as `Reanimated` module.
 
 `rescript-reanimated` `x.y.*` means it's compatible with `react-native-reanimated` `x.y.*`
 
@@ -14,6 +14,7 @@ Work in progress.
   - [ ] Add rest of the `View` props
 - [x] `Animated.Text`
   - [ ] Add rest of the `Text` props
+- [x] `Animated.ScrollView`
 - [x] `useAnimatedGestureHandler`
 - [x] `runOnUI`
 - [x] `runOnJS`
