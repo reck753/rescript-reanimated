@@ -32,5 +32,3 @@ let make = () => {
   </View>
 }
 let default = make
-
-let id = x => x
