@@ -3,7 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 2.3.9 (2022-10-03)
+## 2.3.10 (2022-10-05)
+
+### Breaking change
+
+- Renamed the module from `ResAnimated` to `Reanimated`. `Reanimated` should be more appropriate name since this is a binding to react-native-**reanimated** after all.
+## 2.3.9 (2022-10-05)
 
 - Added `useAnimatedScrollHandler` and `ScrollView` ([davisuga](https://github.com/davisuga)).
 
