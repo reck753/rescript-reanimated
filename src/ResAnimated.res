@@ -1,11 +1,9 @@
-open ReactNative
-
 module View = {
   @react.component @module("./exports")
   external make: (
-    ~style: Style.t=?,
+    ~style: ReactNative.Style.t=?,
     ~children: React.element=?,
-    ~onLayout: Event.layoutEvent => unit=?,
+    ~onLayout: ReactNative.Event.layoutEvent => unit=?,
     ~pointerEvents: @string
     [
       | #auto
@@ -18,11 +16,10 @@ module View = {
 
 module Text = {
   @react.component @module("./exports")
-  external make: (~style: Style.t=?, ~children: React.element=?) => React.element = "AnimatedText"
+  external make: (~style: ReactNative.Style.t=?, ~children: React.element=?) => React.element =
+    "AnimatedText"
 }
 module ScrollView = {
-  open ReactNative
-  open ScrollView
   @react.component @module("./exports")
   external make: (
     ~alwaysBounceHorizontal: bool=?,
@@ -32,45 +29,45 @@ module ScrollView = {
     ~bouncesZoom: bool=?,
     ~canCancelContentTouches: bool=?,
     ~centerContent: bool=?,
-    ~contentContainerStyle: Style.t=?,
-    ~contentInset: View.edgeInsets=?,
-    ~contentInsetAdjustmentBehavior: contentInsetAdjustmentBehavior=?,
-    ~contentOffset: contentOffset=?,
-    ~decelerationRate: decelerationRate=?,
+    ~contentContainerStyle: ReactNative.Style.t=?,
+    ~contentInset: ReactNative.View.edgeInsets=?,
+    ~contentInsetAdjustmentBehavior: ReactNative.ScrollView.contentInsetAdjustmentBehavior=?,
+    ~contentOffset: ReactNative.ScrollView.contentOffset=?,
+    ~decelerationRate: ReactNative.ScrollView.decelerationRate=?,
     ~directionalLockEnabled: bool=?,
-    ~endFillColor: Color.t=?,
+    ~endFillColor: ReactNative.Color.t=?,
     ~fadingEdgeLength: float=?,
     ~horizontal: bool=?,
-    ~indicatorStyle: indicatorStyle=?,
+    ~indicatorStyle: ReactNative.ScrollView.indicatorStyle=?,
     ~keyboardDismissMode: @string
     [
       | #none
       | #interactive
       | @as("on-drag") #onDrag
     ]=?,
-    ~keyboardShouldPersistTaps: keyboardShouldPersistTaps=?,
+    ~keyboardShouldPersistTaps: ReactNative.ScrollView.keyboardShouldPersistTaps=?,
     ~maximumZoomScale: float=?,
     ~minimumZoomScale: float=?,
     ~nestedScrollEnabled: bool=?,
     ~onContentSizeChange: ((float, float)) => unit=?,
-    ~onMomentumScrollBegin: Event.scrollEvent => unit=?,
-    ~onMomentumScrollEnd: Event.scrollEvent => unit=?,
-    ~onScroll: Event.scrollEvent => unit=?,
-    ~onScrollBeginDrag: Event.scrollEvent => unit=?,
-    ~onScrollEndDrag: Event.scrollEvent => unit=?,
-    ~overScrollMode: overScrollMode=?,
+    ~onMomentumScrollBegin: ReactNative.Event.scrollEvent => unit=?,
+    ~onMomentumScrollEnd: ReactNative.Event.scrollEvent => unit=?,
+    ~onScroll: ReactNative.Event.scrollEvent => unit=?,
+    ~onScrollBeginDrag: ReactNative.Event.scrollEvent => unit=?,
+    ~onScrollEndDrag: ReactNative.Event.scrollEvent => unit=?,
+    ~overScrollMode: ReactNative.ScrollView.overScrollMode=?,
     ~pagingEnabled: bool=?,
     ~pinchGestureEnabled: bool=?,
     ~refreshControl: React.element=?,
     ~scrollEnabled: bool=?,
     ~scrollEventThrottle: int=?,
-    ~scrollIndicatorInsets: View.edgeInsets=?,
+    ~scrollIndicatorInsets: ReactNative.View.edgeInsets=?,
     ~scrollPerfTag: string=?,
     ~scrollsToTop: bool=?,
     ~scrollToOverflowEnabled: bool=?,
     ~showsHorizontalScrollIndicator: bool=?,
     ~showsVerticalScrollIndicator: bool=?,
-    ~snapToAlignment: snapToAlignment=?,
+    ~snapToAlignment: ReactNative.ScrollView.snapToAlignment=?,
     ~snapToEnd: bool=?,
     ~snapToInterval: float=?,
     ~snapToOffsets: array<float>=?,
@@ -79,19 +76,19 @@ module ScrollView = {
     ~stickyHeaderIndices: array<int>=?,
     ~zoomScale: float=?,
     // rescript-react-native 0.64 || 0.65 || 0.66 View props
-    ~accessibilityActions: array<Accessibility.actionInfo>=?,
+    ~accessibilityActions: array<ReactNative.Accessibility.actionInfo>=?,
     ~accessibilityElementsHidden: bool=?,
     ~accessibilityHint: string=?,
     ~accessibilityIgnoresInvertColors: bool=?,
     ~accessibilityLabel: string=?,
-    ~accessibilityLiveRegion: Accessibility.liveRegion=?,
-    ~accessibilityRole: Accessibility.role=?,
-    ~accessibilityState: Accessibility.state=?,
-    ~accessibilityValue: Accessibility.value=?,
+    ~accessibilityLiveRegion: ReactNative.Accessibility.liveRegion=?,
+    ~accessibilityRole: ReactNative.Accessibility.role=?,
+    ~accessibilityState: ReactNative.Accessibility.state=?,
+    ~accessibilityValue: ReactNative.Accessibility.value=?,
     ~accessibilityViewIsModal: bool=?,
     ~accessible: bool=?,
     ~collapsable: bool=?,
-    ~hitSlop: View.edgeInsets=?,
+    ~hitSlop: ReactNative.View.edgeInsets=?,
     ~importantForAccessibility: @string
     [
       | #auto
@@ -101,24 +98,24 @@ module ScrollView = {
     ]=?,
     ~nativeID: string=?,
     ~needsOffscreenAlphaCompositing: bool=?,
-    ~onAccessibilityAction: Accessibility.actionEvent => unit=?,
+    ~onAccessibilityAction: ReactNative.Accessibility.actionEvent => unit=?,
     ~onAccessibilityEscape: unit => unit=?,
     ~onAccessibilityTap: unit => unit=?,
-    ~onLayout: Event.layoutEvent => unit=?,
+    ~onLayout: ReactNative.Event.layoutEvent => unit=?,
     ~onMagicTap: unit => unit=?,
     // Gesture Responder props
-    ~onMoveShouldSetResponder: Event.pressEvent => bool=?,
-    ~onMoveShouldSetResponderCapture: Event.pressEvent => bool=?,
-    ~onResponderEnd: Event.pressEvent => unit=?,
-    ~onResponderGrant: Event.pressEvent => unit=?,
-    ~onResponderMove: Event.pressEvent => unit=?,
-    ~onResponderReject: Event.pressEvent => unit=?,
-    ~onResponderRelease: Event.pressEvent => unit=?,
-    ~onResponderStart: Event.pressEvent => unit=?,
-    ~onResponderTerminate: Event.pressEvent => unit=?,
-    ~onResponderTerminationRequest: Event.pressEvent => bool=?,
-    ~onStartShouldSetResponder: Event.pressEvent => bool=?,
-    ~onStartShouldSetResponderCapture: Event.pressEvent => bool=?,
+    ~onMoveShouldSetResponder: ReactNative.Event.pressEvent => bool=?,
+    ~onMoveShouldSetResponderCapture: ReactNative.Event.pressEvent => bool=?,
+    ~onResponderEnd: ReactNative.Event.pressEvent => unit=?,
+    ~onResponderGrant: ReactNative.Event.pressEvent => unit=?,
+    ~onResponderMove: ReactNative.Event.pressEvent => unit=?,
+    ~onResponderReject: ReactNative.Event.pressEvent => unit=?,
+    ~onResponderRelease: ReactNative.Event.pressEvent => unit=?,
+    ~onResponderStart: ReactNative.Event.pressEvent => unit=?,
+    ~onResponderTerminate: ReactNative.Event.pressEvent => unit=?,
+    ~onResponderTerminationRequest: ReactNative.Event.pressEvent => bool=?,
+    ~onStartShouldSetResponder: ReactNative.Event.pressEvent => bool=?,
+    ~onStartShouldSetResponderCapture: ReactNative.Event.pressEvent => bool=?,
     ~pointerEvents: @string
     [
       | #auto
@@ -129,12 +126,12 @@ module ScrollView = {
     ~removeClippedSubviews: bool=?,
     ~renderToHardwareTextureAndroid: bool=?,
     ~shouldRasterizeIOS: bool=?,
-    ~style: Style.t=?,
+    ~style: ReactNative.Style.t=?,
     ~testID: string=?,
     ~children: React.element=?,
     // react-native-web 0.16 View props
     ~href: string=?,
-    ~hrefAttrs: Web.hrefAttrs=?,
+    ~hrefAttrs: ReactNative.Web.hrefAttrs=?,
     ~onMouseDown: ReactEvent.Mouse.t => unit=?,
     ~onMouseEnter: ReactEvent.Mouse.t => unit=?,
     ~onMouseLeave: ReactEvent.Mouse.t => unit=?,
@@ -155,7 +152,7 @@ type handlers = {
   onScroll?: reanimatedScrollHandler,
 }
 
-type scrollHandler = Event.scrollEvent => unit
+type scrollHandler = ReactNative.Event.scrollEvent => unit
 
 @module("react-native-reanimated")
 /** 
@@ -245,18 +242,18 @@ type animationCallback<'t> = (option<bool>, option<'t>) => unit
 module Timing = {
   type justDuration = {duration: float}
 
-  type justEasing = {easing: Easing.t}
+  type justEasing = {easing: ReactNative.Easing.t}
 
   type both = {
     duration: float,
-    easing: Easing.t,
+    easing: ReactNative.Easing.t,
   }
 
-  let makeConfig = (~duration: option<float>=?, ~easing: option<Easing.t>=?, ()) => {
+  let makeConfig = (~duration: option<float>=?, ~easing: option<ReactNative.Easing.t>=?, ()) => {
     switch (duration, easing) {
     | (Some(duration), None) => Some(#Duration({duration: duration}))
     | (None, Some(easing)) => Some(#Easing({easing: easing}))
-    | (Some(duration), Some(easing)) => Some(#Both({duration: duration, easing: easing}))
+    | (Some(duration), Some(easing)) => Some(#Both({duration, easing}))
     | (None, None) => None
     }
   }
@@ -311,13 +308,13 @@ module Spring = {
     ~damping: option<float>=?,
     (),
   ) => {
-    mass: mass,
-    stiffness: stiffness,
-    overshootClamping: overshootClamping,
-    restDisplacementThreshold: restDisplacementThreshold,
-    restSpeedThreshold: restSpeedThreshold,
-    velocity: velocity,
-    damping: damping,
+    mass,
+    stiffness,
+    overshootClamping,
+    restDisplacementThreshold,
+    restSpeedThreshold,
+    velocity,
+    damping,
   }
   @module("react-native-reanimated")
   external withSpring_: ('t, option<config>, option<animationCallback<'t>>) => float = "withSpring"
@@ -333,20 +330,33 @@ let withSpring = (
 }
 
 @module("react-native-reanimated")
-external useAnimatedStyle: (@uncurry (unit => Style.t)) => Style.t = "useAnimatedStyle"
-@module("react-native-reanimated")
-external useAnimatedStyle0: (@uncurry (unit => Style.t), @as(json`[]`) _) => Style.t =
+external useAnimatedStyle: (@uncurry (unit => ReactNative.Style.t)) => ReactNative.Style.t =
   "useAnimatedStyle"
 @module("react-native-reanimated")
-external useAnimatedStyle1: (@uncurry (unit => Style.t), array<'a>) => Style.t = "useAnimatedStyle"
+external useAnimatedStyle0: (
+  @uncurry (unit => ReactNative.Style.t),
+  @as(json`[]`) _,
+) => ReactNative.Style.t = "useAnimatedStyle"
 @module("react-native-reanimated")
-external useAnimatedStyle2: (@uncurry (unit => Style.t), ('a, 'b)) => Style.t = "useAnimatedStyle"
+external useAnimatedStyle1: (
+  @uncurry (unit => ReactNative.Style.t),
+  array<'a>,
+) => ReactNative.Style.t = "useAnimatedStyle"
 @module("react-native-reanimated")
-external useAnimatedStyle3: (@uncurry (unit => Style.t), ('a, 'b, 'c)) => Style.t =
-  "useAnimatedStyle"
+external useAnimatedStyle2: (
+  @uncurry (unit => ReactNative.Style.t),
+  ('a, 'b),
+) => ReactNative.Style.t = "useAnimatedStyle"
 @module("react-native-reanimated")
-external useAnimatedStyle4: (@uncurry (unit => Style.t), ('a, 'b, 'c, 'd)) => Style.t =
-  "useAnimatedStyle"
+external useAnimatedStyle3: (
+  @uncurry (unit => ReactNative.Style.t),
+  ('a, 'b, 'c),
+) => ReactNative.Style.t = "useAnimatedStyle"
+@module("react-native-reanimated")
+external useAnimatedStyle4: (
+  @uncurry (unit => ReactNative.Style.t),
+  ('a, 'b, 'c, 'd),
+) => ReactNative.Style.t = "useAnimatedStyle"
 
 module Extrapolation = {
   type t
@@ -391,5 +401,9 @@ external interpolate: (
 ) => float = "interpolate"
 
 @module("react-native-reanimated")
-external interpolateColor: (float, array<float>, array<Color.t>, option<[#RGB | #HSV]>) => Color.t =
-  "interpolateColor"
+external interpolateColor: (
+  float,
+  array<float>,
+  array<ReactNative.Color.t>,
+  option<[#RGB | #HSV]>,
+) => ReactNative.Color.t = "interpolateColor"
