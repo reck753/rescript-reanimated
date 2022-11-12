@@ -3,6 +3,14 @@
 import * as Exports from "./exports";
 import * as ReactNativeReanimated from "react-native-reanimated";
 
+var Modifiers = {};
+
+var LayoutAnimation = {
+  Modifiers: Modifiers
+};
+
+var KeyFrame = {};
+
 var make = Exports.AnimatedView;
 
 var View = {
@@ -125,6 +133,9 @@ var ExtrapolationType = {};
 var Interpolate = {};
 
 export {
+  LayoutAnimation ,
+  Modifiers ,
+  KeyFrame ,
   View ,
   $$Text ,
   ScrollView ,
