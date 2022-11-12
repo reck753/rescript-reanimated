@@ -205,7 +205,7 @@ module KeyFrame = {
   type keyframeConfig = {
     from?: reanimatedStyle,
     to?: reanimatedStyle,
-    // This looks a little bit stupid, but this has the better developer experience and type inference than using a dict/object.
+    // This looks a little bit stupid, but this has better developer experience and type inference than using a dict/object.
     \"0"?: reanimatedStyle,
     \"1"?: reanimatedStyle,
     \"2"?: reanimatedStyle,
