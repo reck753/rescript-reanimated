@@ -89,7 +89,7 @@ external reanimatedStyle: (
 ) => reanimatedStyle = ""
 
 module LayoutAnimation = {
-  type t = unit
+  type t
   module Modifiers = {
     @send
     external duration: (t, float) => t = "duration"
