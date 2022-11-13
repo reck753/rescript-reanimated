@@ -12,10 +12,10 @@ prettier@^2.5.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
   integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
 
-rescript-react-native@0.66.0:
-  version "0.66.0"
-  resolved "https://registry.yarnpkg.com/rescript-react-native/-/rescript-react-native-0.66.0.tgz#2b6981dce30ffd0b88cd7c585cd05609a6177a4d"
-  integrity sha512-EuB1gAYjrXO7LtYRxB+/doJw9jX0oKhefpJ4yiREsYd2AW4lMva8UVAHh1GKV7jkDW9012jdyfY6E81mzl7ysQ==
+"rescript-react-native@^0.64.3 || ^0.65.0 || ^0.66.0 || ^0.70":
+  version "0.70.0"
+  resolved "https://registry.yarnpkg.com/rescript-react-native/-/rescript-react-native-0.70.0.tgz#a2d60e7fc1ff4b7298415d2ff2c19deab20bf19a"
+  integrity sha512-WeOOOfVeemDBNUy1C+iJ5VyIhdKIe9TeO+q5r/+GkjMy+BEa89Dyb882zSVppQdU8Rv7Aw4dhWmthIkOHv3Kcw==
 
 rescript@^10.0.1:
   version "10.0.1"
