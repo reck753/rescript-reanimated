@@ -1,6 +1,9 @@
 {
   "name": "rescript-reanimated",
-  "reason": { "react-jsx": 3 },
+  "jsx": {
+    "version": 4,
+    "mode": "automatic"
+  },
   "sources": [
     {
       "dir": "src",

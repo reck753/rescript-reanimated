@@ -2,22 +2,22 @@
 # yarn lockfile v1
 
 
-"@rescript/react@^0.10.3":
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/@rescript/react/-/react-0.10.3.tgz#a2a8bed6b017940ec26c2154764b350f50348889"
-  integrity sha512-Lf9rzrR3bQPKJjOK3PBRa/B3xrJ7CqQ1HYr9VHPVxJidarIJJFZBhj0Dg1uZURX+Wg/xiP0PHFxXmdj2bK8Vxw==
+"@rescript/react@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@rescript/react/-/react-0.11.0.tgz#d2545546d823bdb8e6b59daa1790098d1666f79e"
+  integrity sha512-RzoAO+3cJwXE2D7yodMo4tBO2EkeDYCN/I/Sj/yRweI3S1CY1ZBOF/GMcVtjeIurJJt7KMveqQXTaRrqoGZBBg==
 
 prettier@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
   integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
 
-"rescript-react-native@^0.64.3 || ^0.65.0 || ^0.66.0 || ^0.70":
-  version "0.70.0"
-  resolved "https://registry.yarnpkg.com/rescript-react-native/-/rescript-react-native-0.70.0.tgz#a2d60e7fc1ff4b7298415d2ff2c19deab20bf19a"
-  integrity sha512-WeOOOfVeemDBNUy1C+iJ5VyIhdKIe9TeO+q5r/+GkjMy+BEa89Dyb882zSVppQdU8Rv7Aw4dhWmthIkOHv3Kcw==
+rescript-react-native@^0.72.0:
+  version "0.72.0"
+  resolved "https://registry.yarnpkg.com/rescript-react-native/-/rescript-react-native-0.72.0.tgz#ba859da49734d1beee72838b4b28af0752abc5a0"
+  integrity sha512-xRAPhWYXuAUfthFWEtFJ2R/2t/cnHZ7tCpJomv/3ga60AeDnr8S7OJ/iRZghtz4P3Ngd/+UdNMq3fjuvoAu1Yg==
 
-rescript@^10.0.1:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/rescript/-/rescript-10.0.1.tgz#5b2da8a8bcfb994bed1eb24820bf10cfb9d8c440"
-  integrity sha512-XwO1GPDtoEU4H03xQE5bp0/qtSVR6YLaJRPxWKrfFgKc+LI36ODOCie7o9UJfgzQdoMYkkZyiTGZ4N9OQEaiUw==
+rescript@^10.1.4:
+  version "10.1.4"
+  resolved "https://registry.yarnpkg.com/rescript/-/rescript-10.1.4.tgz#0f37710d371f32a704f17b4e804f66ce3c79a305"
+  integrity sha512-FFKlS9AG/XrLepWsyw7B+A9DtQBPWEPDPDKghV831Y2KGbie+eeFBOS0xtRHp0xbt7S0N2Dm6hhX+kTZQ/3Ybg==

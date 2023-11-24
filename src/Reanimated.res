@@ -327,6 +327,13 @@ Example:
 }
 include KeyFrame
 
+type pointerEvents = [
+  | #auto
+  | #none
+  | #"box-none"
+  | #"box-only"
+]
+
 module View = {
   @react.component @module("./exports")
   external make: (
@@ -335,13 +342,7 @@ module View = {
     ~onLayout: ReactNative.Event.layoutEvent => unit=?,
     ~entering: LayoutAnimation.t=?,
     ~exiting: LayoutAnimation.t=?,
-    ~pointerEvents: @string
-    [
-      | #auto
-      | #none
-      | @as("box-none") #boxNone
-      | @as("box-only") #boxOnly
-    ]=?,
+    ~pointerEvents: pointerEvents=?,
   ) => React.element = "AnimatedView"
 }
 
@@ -376,11 +377,10 @@ module ScrollView = {
     ~fadingEdgeLength: float=?,
     ~horizontal: bool=?,
     ~indicatorStyle: ReactNative.ScrollView.indicatorStyle=?,
-    ~keyboardDismissMode: @string
-    [
+    ~keyboardDismissMode: [
       | #none
       | #interactive
-      | @as("on-drag") #onDrag
+      | #"on-drag"
     ]=?,
     ~keyboardShouldPersistTaps: ReactNative.ScrollView.keyboardShouldPersistTaps=?,
     ~maximumZoomScale: float=?,
@@ -426,12 +426,11 @@ module ScrollView = {
     ~accessible: bool=?,
     ~collapsable: bool=?,
     ~hitSlop: ReactNative.View.edgeInsets=?,
-    ~importantForAccessibility: @string
-    [
+    ~importantForAccessibility: [
       | #auto
       | #yes
       | #no
-      | @as("no-hide-descendants") #noHideDescendants
+      | #"no-hide-descendants"
     ]=?,
     ~nativeID: string=?,
     ~needsOffscreenAlphaCompositing: bool=?,
@@ -453,13 +452,7 @@ module ScrollView = {
     ~onResponderTerminationRequest: ReactNative.Event.pressEvent => bool=?,
     ~onStartShouldSetResponder: ReactNative.Event.pressEvent => bool=?,
     ~onStartShouldSetResponderCapture: ReactNative.Event.pressEvent => bool=?,
-    ~pointerEvents: @string
-    [
-      | #auto
-      | #none
-      | @as("box-none") #boxNone
-      | @as("box-only") #boxOnly
-    ]=?,
+    ~pointerEvents: pointerEvents=?,
     ~removeClippedSubviews: bool=?,
     ~renderToHardwareTextureAndroid: bool=?,
     ~shouldRasterizeIOS: bool=?,
@@ -561,10 +554,10 @@ module AnimatedGestureHandler = {
 }
 
 @module("react-native-reanimated")
-external runOnUI: ('arg => 'return, . 'arg) => unit = "runOnUI"
+external runOnUI: ('arg => 'return) => (. 'arg) => unit = "runOnUI"
 
 @module("react-native-reanimated")
-external runOnJS: ('arg => 'return, . 'arg) => unit = "runOnJS"
+external runOnJS: ('arg => 'return) => (. 'arg) => unit = "runOnJS"
 
 module SharedValue = {
   type t<'t> = {mutable value: 't}
